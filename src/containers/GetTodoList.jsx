@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import TodoList from '../components/TodoList.jsx'
+import { deleteTodo, editTodo } from '../actions/index.jsx'
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +11,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onTodoDelete: (id) => {
-      dispatch({type: 'DELETE_TODO', id: id})
+      dispatch(deleteTodo(id))
+    },
+    onTodoEdit: (id, text) => {
+      dispatch(editTodo(id, text))
     }
   }
 }
